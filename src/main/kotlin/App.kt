@@ -1,4 +1,3 @@
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -6,12 +5,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import mytexteditor.resources.Res
+import mytexteditor.resources.moon
 import mytexteditor.resources.save
+import mytexteditor.resources.sun
 import org.jetbrains.compose.resources.painterResource
 import theme.AppTheme
 import ui.MainScreen
@@ -55,6 +57,18 @@ fun App(
                                 contentDescription = "save file",
                                 modifier = Modifier.size(24.dp),
                                 tint = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+
+                        IconButton(
+                            onClick = { viewModel.toggleDarkMode() },
+                            modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                        ){
+                            Icon(
+                                painter = painterResource(if(uiState.darkMode) Res.drawable.moon else Res.drawable.sun),
+                                contentDescription = "toggle theme",
+                                modifier = Modifier.size(24.dp),
+                                tint = Color.Unspecified
                             )
                         }
                     }

@@ -75,6 +75,12 @@ class MainViewModel() : ViewModel() {
         _uiState.update { it.copy(isEditingFileName = false) }
     }
 
+    fun toggleDarkMode(){
+        _uiState.update {
+            it.copy(darkMode = !it.darkMode)
+        }
+    }
+
     data class UiState(
         val darkMode: Boolean = false,
         val fileToSave: FileToSave? = null,
