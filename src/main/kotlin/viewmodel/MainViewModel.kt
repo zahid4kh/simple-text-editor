@@ -45,7 +45,7 @@ class MainViewModel() : ViewModel() {
                 fileName = _uiState.value.tempFileName.text,
                 fileExtension = _uiState.value.tempFileExtension,
                 fileContent = _uiState.value.currentUiContent.text,
-                fileLocation = File(documentsDir, "${_uiState.value.tempFileName}.${_uiState.value.tempFileExtension}")
+                fileLocation = File(documentsDir, "${_uiState.value.tempFileName.text}.${_uiState.value.tempFileExtension}")
             )
 
             try {
@@ -62,7 +62,7 @@ class MainViewModel() : ViewModel() {
     private suspend fun showUiMessage(message: String){
         withContext(Dispatchers.Main){
             _uiState.update { it.copy(uiMessage = message) }
-            delay(1000)
+            delay(2000)
             _uiState.update { it.copy(uiMessage = null) }
         }
     }
