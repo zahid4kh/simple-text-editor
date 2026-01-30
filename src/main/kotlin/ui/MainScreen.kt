@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import theme.getJetbrainsMonoFamily
 import viewmodel.MainViewModel
 
 
@@ -20,7 +21,9 @@ fun MainScreen(
             onValueChange = { viewModel.onContentChanged(it) },
             modifier = Modifier
                 .fillMaxSize(),
-            textStyle = MaterialTheme.typography.bodyMedium
+            textStyle = MaterialTheme.typography.bodyMedium.copy(
+                fontFamily = getJetbrainsMonoFamily()
+            )
         )
     }
 

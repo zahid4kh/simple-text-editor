@@ -67,8 +67,12 @@ class MainViewModel() : ViewModel() {
         }
     }
 
-    fun toggleEditName(){
-        _uiState.update { it.copy(isEditingFileName = !it.isEditingFileName) }
+    fun enterEditName(){
+        _uiState.update { it.copy(isEditingFileName = true) }
+    }
+
+    fun exitEditName(){
+        _uiState.update { it.copy(isEditingFileName = false) }
     }
 
     data class UiState(
